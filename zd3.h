@@ -2,24 +2,31 @@
 using namespace std;
 int main()
 {
-    const int arrlen = 10;
-    int arr[arrlen];
-    int* ret = arr;
+    const int size = 10;
+    int arr1[size] = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 };
+    int arr2[size];
+    int* ptr_arr1 = arr1;
+    int* ptr_arr2 = arr2;
 
-    for (int i = 0; i < arrlen; i++)
+    cout << "{ ";
+    for (int i = 0; i < size; i++)
     {
-        cout << "arr[" << i << "] = ";
-        cin >> ret[i];
+        ptr_arr2 = ptr_arr1;
+        cout << *ptr_arr2 << " " << endl;
+        ptr_arr1++;
+        ptr_arr2++;
     }
-
+    cout << "}\n\n";
     cout << "[ ";
-    for (int i = 0; i < arrlen; i++)
-        cout << ret[i] << " ";
+    for (int i = 0; i < size; i++)
+        cout << ptr_arr2[i] << " ";
     cout << "]" << endl;
 
     cout << "[ ";
-    for (int i = arrlen - 1; i >= 0; i--)
-        cout << ret[i] << " ";
+    for (int i = size - 1; i >= 0; i--)
+        cout << ptr_arr2[i] << " ";
     cout << "]" << endl;
     return 0;
+
+    system("PAUSE");
 }
